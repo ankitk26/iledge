@@ -1,14 +1,14 @@
 import { ArrowsClockwiseIcon } from "@phosphor-icons/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { loadExpenses } from "@/server-fns/load-expenses";
+import { loadExpensesGmailApi } from "@/server-fns/load-expenses-gmail-api";
 import { Button } from "../ui/button";
 
 export default function LoadExpensesButton() {
 	const queryClient = useQueryClient();
 
 	const loadExpensesMutation = useMutation({
-		mutationFn: () => loadExpenses(),
+		mutationFn: () => loadExpensesGmailApi(),
 		onSuccess: async (data) => {
 			await queryClient.invalidateQueries();
 			toast.success(data?.message ?? "Load successful");
