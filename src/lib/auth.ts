@@ -44,6 +44,13 @@ export const auth = betterAuth({
 			clientId: process.env.GITHUB_CLIENT_ID!,
 			clientSecret: process.env.GITHUB_CLIENT_SECRET!,
 		},
+		google: {
+			clientId: process.env.GOOGLE_CLIENT_ID!,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+			accessType: "offline",
+			prompt: "consent",
+			scope: ["https://www.googleapis.com/auth/gmail.readonly"],
+		},
 	},
 	plugins: [tanstackStartCookies()],
 });
