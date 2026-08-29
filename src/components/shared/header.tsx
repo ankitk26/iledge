@@ -43,13 +43,14 @@ export default function Header() {
 						Search
 					</Link>
 				</div>
-				<div className="hidden items-center space-x-6 lg:flex">
+				<div className="hidden items-center gap-2 lg:flex">
 					<LoadExpensesButton />
 					<ThemeToggle />
-					<Suspense fallback={<Skeleton className="size-8 rounded-none" />}>
+					<Suspense fallback={<Skeleton className="size-9 rounded-none" />}>
 						<User />
 					</Suspense>
 					<Button
+						className="ml-2"
 						onClick={async () => {
 							await authClient.signOut();
 							navigate({ to: "/login" });
